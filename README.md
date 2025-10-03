@@ -14,9 +14,12 @@ This repository currently contains **pseudo-code and high-level implementation s
 🚧 **Important Notice**
 
 - **Some parts of the code are not yet executable in a one-click manner** and are still under refactoring and debugging.  
-- **The models we trained locally have been uploaded to Hugging Face**  
-  ![Hugging Face](https://huggingface.co/front/assets/huggingface_logo.svg) [https://huggingface.co/caiyuchen](https://huggingface.co/caiyuchen)
-  for direct inference and evaluation.  
+- **The models we trained locally have been uploaded to Hugging Face：**  <span>
+  <img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Hugging Face" width="40" style="vertical-align: middle;"/>
+  &nbsp;
+  <a href="https://huggingface.co/caiyuchen">https://huggingface.co/caiyuchen</a>
+</span> for direct inference and evaluation.  
+
 - Therefore, **full reproduction of all experimental results is still under development**, but we are actively working on completing the implementation.
 
 ---
