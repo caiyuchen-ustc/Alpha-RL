@@ -45,3 +45,19 @@ If you use this code in your research, please cite:
       url={https://arxiv.org/abs/2510.00553}, 
 }
 
+
+## Citation
+
+If you use this code in your research, please cite:
+
+```bibtex
+@misc{cai2025predictabilityreinforcementlearningdynamics,
+      title={On Predictability of Reinforcement Learning Dynamics for Large Language Models}, 
+      author={Yuchen Cai and Ding Cao and Xin Xu and Zijun Yao and Yuqing Huang and Zhenyu Tan and Benyi Zhang and Guiquan Liu and Junfeng Fang},
+      year={2025},
+      eprint={2510.00553},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2510.00553}, 
+}
+
