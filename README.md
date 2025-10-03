@@ -13,40 +13,25 @@ This repository currently contains **pseudo-code and high-level implementation s
 
 🚧 **Important Notice**
 
-- **Some parts of the code are not yet executable in a one-click manner** and are still under refactoring and debugging.
-- **The trained models used in the experiments have not yet been uploaded to the Hugging Face Hub**. Links will be provided once they are available.
-- Therefore, **full reproduction of the experimental results is not yet supported**, but we are actively working on completing the implementation.
+- **Some parts of the code are not yet executable in a one-click manner** and are still under refactoring and debugging.  
+- **The models we trained locally have been uploaded to Hugging Face**  
+  [![Hugging Face](https://huggingface.co/front/assets/huggingface_logo.svg)](https://huggingface.co/caiyuchen)  
+  for direct inference and evaluation.  
+- Therefore, **full reproduction of all experimental results is still under development**, but we are actively working on completing the implementation.
 
 ---
 
 ## ✅ Upcoming Updates
 
 - Complete training pipeline with configurable hyperparameters  
-- Upload of trained models to Hugging Face for direct inference and evaluation  
 - Reproducible experiment scripts  
 - Visualization toolkit for analyzing RL dynamics  
+- Additional pre-trained checkpoints for easier evaluation
 
 ---
 
 If you find this project interesting, feel free to ⭐ star the repository or open an issue for discussion!
 
-## Citation
-
-If you use this code in your research, please cite:
-
-```bibtex
-@misc{cai2025predictabilityreinforcementlearningdynamics,
-      title={On Predictability of Reinforcement Learning Dynamics for Large Language Models}, 
-      author={Yuchen Cai and Ding Cao and Xin Xu and Zijun Yao and Yuqing Huang and Zhenyu Tan and Benyi Zhang and Guiquan Liu and Junfeng Fang},
-      year={2025},
-      eprint={2510.00553},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2510.00553}, 
-}
-
-
-## Citation
 
 If you use this code in your research, please cite:
 
