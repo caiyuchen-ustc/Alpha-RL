@@ -7,47 +7,78 @@ This repository corresponds to the paper:
 
 ---
 
-## 📌 Project Status
 
-This repository currently contains **pseudo-code and high-level implementation sketches** illustrating the core methodology of the paper.
+## Installation
 
-🚧 **Important Notice**
+```bash
+# clone codebase
+git clone https://github.com/caiyuchen-ustc/Alpha-RL.git && cd Alpha-RL
 
-- **Some parts of the code are not yet executable in a one-click manner** and are still under refactoring and debugging.  
-- **The models we trained locally have been uploaded to Hugging Face：**
- 
-  <span>
-  <img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Hugging Face" width="40" style="vertical-align: middle;"/>
-  &nbsp;
-  <a href="https://huggingface.co/caiyuchen">https://huggingface.co/caiyuchen</a>
-  </span> for direct inference and evaluation.  
+# prepare environment
+conda create -y -n AlphaRL python=3.11
+conda activate AlphaRL
 
-- Therefore, **full reproduction of all experimental results is still under development**, but we are actively working on completing the implementation.
+# install dependencies
+pip install -r requirements.txt
+```
 
----
+#
+## Download_Model
 
-## ✅ Upcoming Updates
+You can access the checkpoint at the following link: [Hugging Face - caiyuchen](https://huggingface.co/caiyuchen)
 
-- Complete training pipeline with configurable hyperparameters  
-- Reproducible experiment scripts  
-- Visualization toolkit for analyzing RL dynamics  
-- Additional pre-trained checkpoints for easier evaluation
 
----
+
+```bash
+# run
+cd eval
+sh download_hf.sh
+```
+
+## Singular Value Decomposition
+
+```bash
+sh svd.sh # Obtain the SVD decomposition of each matrix in a model
+```
+## Obtain a Rank-k Model
+
+```bash
+sh upd_rank.sh 
+```
+
+## Model Evaluation
+```bash
+sh reasoning_eval.sh
+```
+
+## t-SNE Visualization of Training Trajectories
+```bash
+cd analysis #eval/analysis
+sh extract_rank1_u.sh #Extract U[:,1]
+sh visualize_rank1_u_tsne.sh
+```
+
+## PLS (Partial Least Squares) Trajectory Fitting
+```bash
+sh AlphaPLS.sh
+```
+
+## AlphaRL Predict
+```bash
+sh AlphaPredVector.sh
+sh AlphaRLBuildPredictModel.sh
+```
+
+
+This repository provides an evaluation framework inspired by **LIMO**, which can be found [here](https://github.com/GAIR-NLP/LIMO).
 
 If you find this project interesting, feel free to ⭐ star the repository or open an issue for discussion!
 
-
 If you use this code in your research, please cite:
-
 ```bibtex
-@misc{cai2025predictabilityreinforcementlearningdynamics,
-      title={On Predictability of Reinforcement Learning Dynamics for Large Language Models}, 
-      author={Yuchen Cai and Ding Cao and Xin Xu and Zijun Yao and Yuqing Huang and Zhenyu Tan and Benyi Zhang and Guiquan Liu and Junfeng Fang},
-      year={2025},
-      eprint={2510.00553},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2510.00553}, 
+@article{cai2025predictability,
+  title={On Predictability of Reinforcement Learning Dynamics for Large Language Models},
+  author={Cai, Yuchen and Cao, Ding and Xu, Xin and Yao, Zijun and Huang, Yuqing and Tan, Zhenyu and Zhang, Benyi and Liu, Guiquan and Fang, Junfeng},
+  journal={arXiv preprint arXiv:2510.00553},
+  year={2025}
 }
-
