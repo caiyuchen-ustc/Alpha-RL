@@ -13,11 +13,13 @@ model_file_path="$parent_dir/models"  # Path to model files
 reasoning_acc_path="$parent_dir/output/eval/models"
 echo "Evaluated reasoning files PATH: $reasoning_acc_path"
 
+
+# Using the 9th step (~9/27, ~30% training progress) for prediction
 python AlphaPredVector.py \
     --reasoning_acc_path "$reasoning_acc_path" \
     --model_file_path "$parent_dir/models" \
     --start 1 \
-    --end 9 \    # Using the 9th step (~9/27, ~30% training progress) for prediction
+    --end 9 \ 
     --rl_algorithm DAPO \
     --save_dir "$current_file_path/AlphaPredFig" \
     --y_predict 1.7
