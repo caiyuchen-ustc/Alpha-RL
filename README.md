@@ -17,6 +17,7 @@ git clone https://github.com/caiyuchen-ustc/Alpha-RL.git && cd Alpha-RL
 # prepare environment
 conda create -y -n AlphaRL python=3.11
 conda activate AlphaRL
+cd Alpha-RL
 
 # install dependencies
 pip install -r requirements.txt
@@ -35,6 +36,11 @@ cd eval
 sh download_hf.sh
 ```
 
+## Model Evaluation
+```bash
+sh reasoning_eval.sh
+```
+
 ## Singular Value Decomposition
 
 ```bash
@@ -46,15 +52,11 @@ sh svd.sh # Obtain the SVD decomposition of each matrix in a model
 sh upd_rank.sh 
 ```
 
-## Model Evaluation
-```bash
-sh reasoning_eval.sh
-```
 
 ## t-SNE Visualization of Training Trajectories
 ```bash
 cd analysis #eval/analysis
-sh extract_rank1_u.sh #Extract U[:,1]
+sh extract_rank1_u.sh #Extract U[:,0]
 sh visualize_rank1_u_tsne.sh
 ```
 
