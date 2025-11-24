@@ -17,9 +17,10 @@ python AlphaPredVector.py \
     --reasoning_acc_path "$reasoning_acc_path" \
     --model_file_path "$parent_dir/models" \
     --start 1 \
-    --end 9 \
+    --end 9 \    # Using the 9th step (~9/27, ~30% training progress) for prediction
     --rl_algorithm DAPO \
     --save_dir "$current_file_path/AlphaPredFig" \
     --y_predict 1.7
+
 
 
