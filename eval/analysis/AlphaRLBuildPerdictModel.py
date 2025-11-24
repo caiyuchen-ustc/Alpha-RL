@@ -5,7 +5,22 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig
 from tqdm import tqdm
 
 @torch.no_grad()
-def AlphaRLBuildPerdictModel(step_model_path, predict_ckpt_step=10, rl_algorithm='DAPO', device="cuda"):
+def AlphaRLBuildPerdictModel(step_model_path, predict_ckpt_step=10, rl_algorithm='DAPO', device="cuda", Only_Rank_1_Space=True):
+
+    """
+    ######################################################################
+    ######################################################################
+
+    If you set Only_Rank_1_Space=True, you need to set a smaller
+    y_predict value in the arguments in AlphaPredVector.sh.
+
+    Using Only_Rank_1_Space=True is expected to yield improved performance,
+    and it does so without relying on any information from future checkpoints.
+
+    ######################################################################
+    ######################################################################
+    """
+
     device = torch.device(device if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
     print(f"\n=== Step {predict_ckpt_step} ===")
@@ -49,6 +64,12 @@ def AlphaRLBuildPerdictModel(step_model_path, predict_ckpt_step=10, rl_algorithm
                     update = Predict_au.T @ Vt_k
                     if Flip_sign:
                         update = -update
+                    if Only_Rank_1_Space == True:
+                        other_U_k = U[:, 1:]
+                        other_S_k = S[1:]
+                        other_Vt_k = Vt[1:, :]
+                        other_update = U @ torch.diag(S) @ Vt
+                        update += other_update
                     update_norm = torch.norm(update)
                     param_base.data += update
 
@@ -64,8 +85,15 @@ def AlphaRLBuildPerdictModel(step_model_path, predict_ckpt_step=10, rl_algorithm
                     Predict_au = torch.tensor(predict_pt[f'layer_{layer_idx}_mlp_{name_base}']).float()
 
                     update = Predict_au.T @ Vt_k
+
                     if Flip_sign:
                         update = -update
+                    if Only_Rank_1_Space == True:
+                        other_U_k = U[:, 1:]
+                        other_S_k = S[1:]
+                        other_Vt_k = Vt[1:, :]
+                        other_update = U @ torch.diag(S) @ Vt
+                        update += other_update
                     update_norm = torch.norm(update)
                     param_base.data += update
 
@@ -88,11 +116,13 @@ if __name__ == "__main__":
     parser.add_argument("--ckpt_step", type=int, default=1)
     parser.add_argument("--rl_algorithm", type=str, default="DAPO", help="rl_algorithm")
     parser.add_argument("--device", type=str, default="cuda", help="Device: cuda or cpu")
+    parser.add_argument("--Only_Rank_1_Space", type=str, default="False", help="Only using the pred rank_1 trajectory")
     args = parser.parse_args()
 
     AlphaRLBuildPerdictModel(
         args.step_model_path,
         args.ckpt_step,
         args.rl_algorithm,
-        device=args.device
+        device=args.device,
+        Only_Rank_1_Space = args.Only_Rank_1_Space
     )
