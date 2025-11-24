@@ -185,7 +185,7 @@ def main():
     args = parse_args()
     y = []
     for i in range(args.start, args.end + 1):  # Use start and end args to control range
-        file_path = f"{args.reasoning_acc_path}/{args.rl_algorithm}-step-{i}/math/test_t0.6_k1.jsonl"
+        file_path = f"{args.reasoning_acc_path}/{args.rl_algorithm}-step-{i}/math/test_t0.6_k4.jsonl"
         if os.path.exists(file_path):
             with open(file_path, 'r') as f:
                 lines = f.readlines()
