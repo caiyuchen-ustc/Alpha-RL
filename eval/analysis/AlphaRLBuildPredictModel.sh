@@ -6,8 +6,9 @@ echo "Parent directory added to PYTHONPATH: $parent_dir"
 python AlphaRLBuildPerdictModel.py \
   --step_model_path $parent_dir/models \
   --ckpt_step 9 \
-  --rl_algorithm Spiral \
-  --device cpu
+  --rl_algorithm DAPO \
+  --device cpu \
+  --Only_Rank_1_Space True \
 
 # python AlphaRLBuildPerdictModel.py \
 #   --step_model_path /project/ugmathllm/caiyuchen/verl/ckptsss/RL-GSPO/qwen3-8B-GSPO \
