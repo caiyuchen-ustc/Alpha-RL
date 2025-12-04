@@ -50,10 +50,6 @@ def main(args):
     emb1 = emb_matrix1[ids1]
     emb2 = emb_matrix2[ids2]
 
-    # ---------------- 添加噪声 ----------------
-    noise_std = 0.0075  # 控制噪声的标准差，调整这个值可以控制噪声强度
-    noise = torch.randn_like(emb2) * noise_std  # 生成与 emb2 相同形状的噪声
-    emb2 = emb2 + noise  # 将噪声加到 emb2 上
 
     all_embeddings = torch.cat([emb1, emb2], dim=0).numpy()
     labels = np.array([0] * len(emb1) + [1] * len(emb2))
