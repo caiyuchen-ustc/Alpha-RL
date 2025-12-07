@@ -1,6 +1,9 @@
 vllm
 torch
 transformers==4.31.0
+huggingface_hub==0.36.0
+latex2sympy
+word2number
 tensorly
 tokenizers
 datasets
