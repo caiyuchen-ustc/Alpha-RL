@@ -3,7 +3,7 @@
 This repository corresponds to the paper:
 
 > **On Predictability of Reinforcement Learning Dynamics for Large Language Models**  
-> *https://arxiv.org/pdf/2510.00553* ICLR 2026 Paper
+> *https://arxiv.org/pdf/2510.00553*
 
 ---
 
