@@ -1,4 +1,4 @@
-# On Predictability of Reinforcement Learning Dynamics for Large Language Models
+# On Predictability of Reinforcement Learning Dynamics for Large Language Models (ICLR 2026)
 
 This repository corresponds to the paper:
 
