@@ -2,8 +2,7 @@
 current_file_path=$(dirname "$(realpath "$0")")
 echo "Current file directory: $current_file_path"
 export PYTHONPATH="$current_file_path:$PYTHONPATH"
-
-CUDA_VISIBLE_DEVICES=0,1,2,3
+export CUDA_VISIBLE_DEVICES=0,1,2,3
 for i in {0..27..1}; do
     echo "Running iteration $i"
     python -m reasoning_eval \
